@@ -1,11 +1,14 @@
 const mongoose = require("mongoose")
 const bcrypt = require("bcrypt");
-
+const category = require("./category.model")
 const userSchema = new mongoose.Schema({
     first_name: {type: String, required: true},
     last_name: {type: String},
     email: {type: String},
-    password: {type: String, required: true, minLength: 8}
+    password: {type: String, required: true, minLength: 8},
+	category:[
+		{type:mongoose.Schema.Types.ObjectId,ref:category}
+	]
 },
 {
     timestamps: true,
