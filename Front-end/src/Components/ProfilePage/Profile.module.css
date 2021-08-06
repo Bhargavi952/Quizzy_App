@@ -1,0 +1,40 @@
+.add_file_disable{
+    visibility: hidden;
+}
+.add_file{
+   /* display: "flex, */
+    /* flexDirection: "row",
+    width: "70%",
+    height: "65px",
+    padding: "10px",
+    justifyContent: "space-evenly",
+    alignItems: "center", */
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border:"1px solid red", */
+    margin-top: 30px;
+}
+
+.user_profile_cont{
+    display: flex;
+    width: 100%;
+    height: inherit;
+    margin-top: 60px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+}
+@media screen and (max-width:480px) {
+    h1 , h2{
+        font-size: 19px;
+    }
+    
+}
+.profile_img{
+    border-radius: 100px;
+    height: 200px;
+    width: 200px;
+}
