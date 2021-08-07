@@ -7,7 +7,7 @@ const userSchema = new mongoose.Schema({
     email: {type: String},
     password: {type: String, required: true, minLength: 8},
 	category:[
-		{type:mongoose.Schema.Types.ObjectId,ref:category}
+		{type:mongoose.Schema.Types.ObjectId,ref:category,default:""}
 	]
 },
 {

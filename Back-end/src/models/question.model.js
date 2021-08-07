@@ -8,7 +8,8 @@ const questionSchema = new mongoose.Schema({
         C: {type: String, required: true},
         D: {type: String, required: true}
     },
-    answer: {type: String, required: true}
+    answer: {type: String, required: true},
+    res:{type:String}
 },
 {
     timestamps: true,

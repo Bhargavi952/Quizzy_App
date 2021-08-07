@@ -56,6 +56,7 @@ export default function Register() {
     })
 console.log(data.status)
     if(data.status==201){
+      console.log("inside")
      return <Redirect to="/login"/>
     }
  

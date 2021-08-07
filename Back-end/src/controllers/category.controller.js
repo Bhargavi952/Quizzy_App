@@ -9,6 +9,11 @@ router.post("/", async (req, res) => {
     return res.status(201).json({data: category})
 })
 
+router.patch("/:id", async (req, res) => {
+    const category = await Category.findByIdAndUpdate(req.params.id,{$set:{questions:req.body}},{new:true}).populate("questions").lean().exec()
+    return res.status(201).json({data: category})
+})
+
 router.get("/", async (req, res) => {
     const category = await Category.find().populate("questions").lean().exec()
     return res.status(201).json({data: category})

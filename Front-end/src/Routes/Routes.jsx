@@ -6,7 +6,7 @@ import Profile from "../Components/ProfilePage/Profile";
 
 import Footer from "../Components/Footer/Footer";
 import { useSelector } from "react-redux";
-
+import Navbar from "../Components/Navbar/Navbar"
 import Home from "../Components/HomePage/Home";
 
 
@@ -14,15 +14,16 @@ const Routes = () => {
   let { isAuth } = useSelector((state) => state.auth);
   return (
     <>
+    <Navbar/>
       <Switch>
 
       <Route exact path="/profile">
             <Profile />
           </Route>
           <Route exact path="/login">
+           
             <Login />
           </Route>
-       
 
         <Route exact path="/register">
           <Register />
