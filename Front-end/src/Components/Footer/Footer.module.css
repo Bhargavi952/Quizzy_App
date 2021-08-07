@@ -15,6 +15,9 @@
     height: 60px;
     gap: 25px;
     color: #bac5c0;
+    background-color: rgb(22, 17, 17);
+    width: 100%;
+    bottom: 0;
 }
 .social_icons :hover{
     color: #11bf71;

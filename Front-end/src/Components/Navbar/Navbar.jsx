@@ -6,7 +6,16 @@ import { Button } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
 import {saveData,loadData} from "../../LocalStorage/localstorage"
 import {SignOut} from "../../Redux/Auth/action"
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    backgroundColor:"#11bf71",
+  },
+}));
 const Navbar = () => {
+  const classes = useStyles();
+
   const { isAuth } = useSelector((state) => state.auth);
   let dispatch = useDispatch()
   console.log(isAuth)
@@ -24,13 +33,13 @@ const Navbar = () => {
       <div className={styles.navbar_right_cont}>
 
         {isAuth ? (
-          <Button onClick={handleLogOut} variant="contained" color="primary">
+          <Button className={classes.root} onClick={handleLogOut} variant="contained">
             <Link  className={styles.link} to="/">
               LOG OUT
             </Link>
           </Button>
         ) : (
-          <Button variant="contained" color="primary">
+          <Button className={classes.root} variant="contained">
             <Link className={styles.link} to="/login">
               LOG IN
             </Link>
@@ -39,12 +48,12 @@ const Navbar = () => {
           </Button>
         )}
 
-        <Button variant="outlined">
+        <Button className={classes.root} variant="contained">
           <Link className={styles.link} to="/register">
             Register
           </Link>
         </Button>
-        <Button variant="outlined">
+        <Button className={classes.root} variant="contained">
           <Link className={styles.link} to="/profile">
             User
           </Link>

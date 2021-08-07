@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const { LOGIN_REQ, LOGIN_SUC, LOGIN_FAIL } = require("./actionTypes")
+const { LOGIN_REQ, LOGIN_SUC, LOGIN_FAIL, LOG_OUT } = require("./actionTypes")
 
 const LoginReq = ()=>{
     return {
@@ -19,13 +19,29 @@ const LoginFail = () => {
     }
 }
 
+const LogOutSuccess = (payload)=>{
+    return {
+        type:LOG_OUT,
+        payload
+    }
+}
+
+export const SignOut = () =>(dispatch)=>{
+   console.log(12)
+
+   dispatch(LogOutSuccess())
+   
+
+}
+
 export const SignIn = (payload) =>async(dispatch)=>{
     dispatch(LoginReq)
+   
     
     try{
-        const data = await axios.post("http://localhost:4000/login",JSON.stringify(payload))
+        const data = await axios.post("http://localhost:4000/login",payload)
         console.log(data)
-
+        
         return dispatch(LoginSuccess(data.status))
     }
     catch(err){
