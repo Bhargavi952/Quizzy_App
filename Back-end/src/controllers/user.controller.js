@@ -8,6 +8,10 @@ router.get("/", async (req, res) => {
     return res.status(201).json({data: user})
 })
 
+router.get("/:id", async (req, res) => {
+    const user = await User.findbyid(req.params.id).populate("category").lean().exec()
+    return res.status(201).json({data: user})
+})
 
 router.patch("/:id", async (req, res) => {
     const old= await User.findById(req.params.id)
