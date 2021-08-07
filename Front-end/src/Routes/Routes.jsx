@@ -3,7 +3,13 @@ import { Switch, Route } from "react-router-dom";
 import Register from "../Components/RegisterPage/Register";
 import Login from "../Components/LoginPage/Login";
 import Profile from "../Components/ProfilePage/Profile";
+
+
+
 import { useSelector } from "react-redux";
+
+
+
 import Home from "../Components/HomePage/Home";
 
 
