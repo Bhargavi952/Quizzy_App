@@ -22,10 +22,10 @@ const Navbar = () => {
 
   const { isAuth } = useSelector((state) => state.auth);
   let dispatch = useDispatch()
-  console.log(isAuth)
-  
+
   const handleLogOut=()=>{
    dispatch(SignOut())
+   console.log(isAuth)
   }
 
  
@@ -46,9 +46,7 @@ const Navbar = () => {
           <Button className={classes.root} variant="contained">
             <Link className={styles.link} to="/login">
               LOG IN
-            </Link>
-
-        
+            </Link>   
           </Button>
         )}
 

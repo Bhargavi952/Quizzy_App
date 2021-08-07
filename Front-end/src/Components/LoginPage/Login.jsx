@@ -16,7 +16,9 @@ import { useHistory } from "react-router"
 
 import styles from './Login.module.css'
 import logo from "../../Images/logo.png";
+
 import Socialmedia from '../Footer/Socialmedia';
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -128,7 +130,11 @@ export default function Login() {
       </div>
      
     </Container>
+
     <Socialmedia/>
+
+   
+   
     </>
   );
 }
