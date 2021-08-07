@@ -22,6 +22,7 @@ const Navbar = () => {
         <img width="70px" src={logo} alt="Logo" />
       </div>
       <div className={styles.navbar_right_cont}>
+
         {isAuth ? (
           <Button onClick={handleLogOut} variant="contained" color="primary">
             <Link  className={styles.link} to="/">
@@ -33,6 +34,8 @@ const Navbar = () => {
             <Link className={styles.link} to="/login">
               LOG IN
             </Link>
+
+        
           </Button>
         )}
 

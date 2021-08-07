@@ -10,7 +10,7 @@
     display: flex;
     width: 100%;
     height: inherit;
-    /* margin-top: 60px; */
+    margin-top: 80px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -21,7 +21,29 @@
     
    
 }
+.nav_profile_cont{
+    height: 90px;
+    width: 100%;
+    background-color: rgb(22, 17, 17);
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1000px;
+    
+}
+@media screen and (max-width:480px) {
+    .nav_profile_cont{
+        gap: 180px;
+    }
+    
+}
 
+.link{
+    text-decoration: none;
+    color: white;
+}
 .profile_img{
     border-radius: 100px;
     height: 200px;

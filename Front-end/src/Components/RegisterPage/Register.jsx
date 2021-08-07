@@ -11,13 +11,17 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
+import { useHistory } from "react-router";
+import logo from '../../Images/logo.png'
+import styles from './Register.module.css'
 
 const useStyles = makeStyles((theme) => ({
   root: {
     minHeight: "430px",
     boxShadow: "rgba(10, 10, 10, 0.35) 0px 5px 15px",
     borderRadius: "30px",
-    backgroundColor:"rgb(230, 219, 227)"
+    backgroundColor:"rgb(230, 219, 227)",
+    marginTop:"120px"
   },
   paper: {
     marginTop: theme.spacing(8),
@@ -45,6 +49,7 @@ export default function Register() {
   const [lastName,setLastName] = useState("")
   const [Email,setEmail] = useState("")
   const [Password,setPassword] = useState("")
+  const history = useHistory()
 
   const handleClick = async()=> {
     console.log(1)
@@ -56,13 +61,19 @@ export default function Register() {
     })
 console.log(data.status)
     if(data.status==201){
-      console.log("inside")
-     return <Redirect to="/login"/>
+
+
+      history.push("/login")
+
     }
  
   }
 
   return (
+    <>
+    <div className={styles.nav_profile_cont}>
+        <img className={styles.img} width="70px" src={logo} alt="Logo" />
+      </div>
     <Container className={classes.root} component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
@@ -145,5 +156,6 @@ console.log(data.status)
           </Button>
       </div>
     </Container>
+    </>
   );
 }

@@ -11,9 +11,16 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { useDispatch, useSelector } from "react-redux"
 import { SignIn } from '../../Redux/Auth/action';
+
 import { useHistory } from "react-router"
+
+import styles from './Login.module.css'
+import logo from "../../Images/logo.png";
+
+
 const useStyles = makeStyles((theme) => ({
     root:{
+      marginTop:"100px",
         boxShadow: "rgba(10, 10, 10, 0.35) 0px 5px 15px",
         borderRadius: "30px",
         minHeight:"380px",
@@ -57,6 +64,10 @@ export default function Login() {
 }
 
   return (
+    <>
+     <div className={styles.nav_profile_cont}>
+        <img className={styles.img} width="70px" src={logo} alt="Logo" />
+      </div>
     <Container className={classes.root} component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
@@ -112,5 +123,6 @@ export default function Login() {
       </div>
      
     </Container>
+    </>
   );
 }
