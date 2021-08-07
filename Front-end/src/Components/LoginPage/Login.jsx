@@ -16,11 +16,12 @@ import { useHistory } from "react-router"
 
 import styles from './Login.module.css'
 import logo from "../../Images/logo.png";
+import Socialmedia from '../Footer/Socialmedia';
 
 
 const useStyles = makeStyles((theme) => ({
     root:{
-      marginTop:"100px",
+      marginTop:"145px",
         boxShadow: "rgba(10, 10, 10, 0.35) 0px 5px 15px",
         borderRadius: "30px",
         minHeight:"380px",
@@ -114,15 +115,16 @@ export default function Login() {
           </Button>
           <Grid container>
             <Grid item >
-              <Link href="#" variant="body2">
-                {"Don't have an account? Sign Up"}
-              </Link>
+              <a href="/register" variant="body2">
+                {"Don't have an account? Register"}
+              </a>
             </Grid>
           </Grid>
         </form>
       </div>
      
     </Container>
+    <Socialmedia/>
     </>
   );
 }
