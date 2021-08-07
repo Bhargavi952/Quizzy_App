@@ -23,3 +23,15 @@
 .btn{
     background-color: rgb(15, 168, 26);
 }
+@media screen and (max-width:480px){
+    .navbar_cont{
+        justify-content: space-between;
+    }
+    .navbar_left_cont{
+        margin-left: 0px;
+    }
+    .navbar_right_cont{
+        width: 60%;
+    }
+    
+}

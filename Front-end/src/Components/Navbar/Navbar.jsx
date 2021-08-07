@@ -16,12 +16,12 @@ const Navbar = () => {
           Login
           </Link>
          </Button>
-          <Button variant="outlined">
+          <Button variant="contained" color="primary">
           <Link  className={styles.link} to='/register' >
           Register
           </Link> 
           </Button>
-          <Button variant="outlined" >
+          <Button variant="contained" color="primary" >
           <Link  className={styles.link} to='/profile' >
             User
         </Link>
