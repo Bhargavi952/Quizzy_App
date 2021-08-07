@@ -68,6 +68,10 @@ export default function Login() {
     <>
      <div className={styles.nav_profile_cont}>
         <img className={styles.img} width="70px" src={logo} alt="Logo" />
+        <button className={styles.btn}>
+          <Link className={styles.link} to='/login'>Register
+          </Link>
+        </button>
       </div>
     <Container className={classes.root} component="main" maxWidth="xs">
       <CssBaseline />

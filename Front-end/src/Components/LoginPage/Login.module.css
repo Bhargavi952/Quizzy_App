@@ -5,9 +5,23 @@
     position: fixed;
     top: 0;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
 }
 .img{
     margin-left: 60px;
+}
+.btn{
+    background-color: #11bf71;
+    margin-right: 40px;
+    border: none;
+    outline: none;
+    color: white;
+    height: 30px;
+    width: 100px;
+    border-radius: 10px;
+}
+.link{
+    text-decoration: none;
+    color: white;
 }
