@@ -52,7 +52,8 @@ export default function Login() {
   const classes = useStyles();
   const [email,setEmail] = useState("")
   const [password,setPassword] = useState("")
-  const {isAuth} = useSelector(state=>state.auth)
+  const {isAuth,userId} = useSelector(state=>state.auth)
+ 
   const history = useHistory()
   let dispatch = useDispatch()
 
@@ -61,7 +62,9 @@ export default function Login() {
   }
   const handleLogin = (e)=>{
     e.preventDefault()
+    console.log(userId)
     dispatch(SignIn({email,password}))
+    console.log(userId)
 }
 
   return (

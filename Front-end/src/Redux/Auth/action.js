@@ -39,10 +39,10 @@ export const SignIn = (payload) =>async(dispatch)=>{
    
     
     try{
-        const data = await axios.post("http://localhost:4000/login",payload)
-        console.log(data)
+        const {data} = await axios.post("http://localhost:4000/login",payload)
+        console.log(data.user._id)
         
-        return dispatch(LoginSuccess(data.status))
+        return dispatch(LoginSuccess(data))
     }
     catch(err){
         alert(`wrong user Credentials ${err}`)

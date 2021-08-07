@@ -46,16 +46,26 @@ const Navbar = () => {
           </Button>
         )}
 
-        <Button className={classes.root} variant="contained">
-          <Link className={styles.link} to="/register">
-            Register
-          </Link>
-        </Button>
-        <Button className={classes.root} variant="contained">
-          <Link className={styles.link} to="/profile">
-            User
-          </Link>
-        </Button>
+{!isAuth ? (
+            <Button className={classes.root} variant="contained">
+            <Link className={styles.link} to="/register">
+              Register
+            </Link>
+          </Button>
+        ) : null
+          
+        }
+      
+      {isAuth ? (
+             <Button className={classes.root} variant="contained">
+             <Link className={styles.link} to="/profile">
+               DashBoard
+             </Link>
+           </Button>
+        ) : null
+          
+        }
+       
       </div>
     </div>
   );
