@@ -2,6 +2,7 @@ import { LOGIN_REQ, LOGIN_SUC, LOGIN_FAIL, LOG_OUT } from "./actionTypes";
 import {saveData,loadData} from "../../LocalStorage/localstorage"
 const initState = {
   isAuth: loadData("isAuth")||false,
+  userId:"",
   isLoading: false,
   isErr: false,
 };
@@ -15,9 +16,12 @@ const initState = {
       };
     case LOGIN_SUC:
       saveData("isAuth",true)
+      
+      console.log(payload.user._id)
       return {
         ...state,
-        isAuth:true
+        isAuth:true,
+        userId:payload.user._id
       };
       case LOG_OUT:
       saveData("isAuth",false)

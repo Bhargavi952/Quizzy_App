@@ -1,10 +1,11 @@
-import React from "react";
+import React,{useRef} from "react";
 import styles from "./Category.module.css";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import { Zoom } from "react-reveal";
-
+import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -33,8 +34,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CategoryCard = () => {
+const CategoryCard = ({data}) => {
   const classes = useStyles();
+ 
+  let userId = useSelector(state=>state.auth.userId)
+  console.log(data);
+
+  const handleClick = async(id)=>{
+    let payload={
+      category:id
+    }
+   let res= await axios.patch(`http://localhost:4000/user/${userId}`,payload)
+   console.log(res)
+  }
 
   return (
     <div className={styles.categorycard_cont}>
@@ -44,19 +56,23 @@ const CategoryCard = () => {
         container
         spacing={2.5}
       >
-        {[1, 2, 3, 4, 5, 6].map((item, id) => {
+        {data&&data.map((item, id) => {
           return (
-            <Grid key={id} item xs={4} sm={4} md={3} lg={6}>
+            
+            <Grid  key={id} item xs={4} sm={4} md={3} lg={6}>
               <Zoom>
                 <Paper className={classes.paper}>
+                <div onClick={()=>handleClick(item._id)}>
                   <img
                     className={styles.img}
-                    src="https://via.placeholder.com/150"
+                    src={item.url}
                   />
-                  <p className={classes.p}>{item}</p>
+                  </div>
+                  <p className={classes.p}>{item.title}</p>
                 </Paper>
               </Zoom>
             </Grid>
+           
           );
         })}
       </Grid>

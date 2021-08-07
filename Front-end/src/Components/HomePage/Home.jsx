@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect,useState } from "react";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import CategoryCard from "./CategoryCard";
@@ -10,8 +10,9 @@ import pic4 from "../../Images/4.svg";
 import pic5 from "../../Images/5.svg";
 import pic6 from "../../Images/6.svg";
 import pic7 from "../../Images/7.svg";
-
+import { useDispatch, useSelector } from "react-redux";
 import "react-slideshow-image/dist/styles.css";
+import axios from "axios";
 
 const Home = () => {
   const images = [pic1, pic2, pic3, pic4, pic5, pic6, pic7];
@@ -20,12 +21,27 @@ const Home = () => {
     scale: 0.4,
   };
 
+ let userId = useSelector(state=>state.auth.userId)
+console.log(userId);
+const [data,setData] =useState("")
+const fetchData= async()=>{
+  let category = await axios.get("http://localhost:4000/category")
+   console.log(category.data.data)
+  let x = category.data.data
+  setData(x)
+  console.log(data)
+}
+
+  useEffect(()=>{
+    fetchData()
+  },[])
+
 
   return (
     <div>
       <Navbar />
     <div>
-    <CategoryCard />
+    <CategoryCard data={data} />
     </div>
       <div style={{ width: "50%", margin: "auto" }}>
         <Zoom {...zoomOutProperties}>
