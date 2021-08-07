@@ -4,11 +4,11 @@ import Register from "../Components/RegisterPage/Register";
 import Login from "../Components/LoginPage/Login";
 import Profile from "../Components/ProfilePage/Profile";
 
-import Footer from "../Components/Footer/Footer";
+
 import { useSelector } from "react-redux";
-import Navbar from "../Components/Navbar/Navbar"
+
 import Home from "../Components/HomePage/Home";
-import Navbar from "../Components/Navbar/Navbar";
+
 
 const Routes = () => {
   let { isAuth } = useSelector((state) => state.auth);

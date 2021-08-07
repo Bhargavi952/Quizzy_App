@@ -9,10 +9,10 @@ import {SignOut} from "../../Redux/Auth/action"
 const Navbar = () => {
   const { isAuth } = useSelector((state) => state.auth);
   let dispatch = useDispatch()
-  console.log(isAuth)
-  
+
   const handleLogOut=()=>{
    dispatch(SignOut())
+   console.log(isAuth)
   }
 
  
@@ -33,9 +33,7 @@ const Navbar = () => {
           <Button variant="contained" color="primary">
             <Link className={styles.link} to="/login">
               LOG IN
-            </Link>
-
-        
+            </Link>   
           </Button>
         )}
 

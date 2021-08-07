@@ -16,6 +16,7 @@ import { useHistory } from "react-router"
 
 import styles from './Login.module.css'
 import logo from "../../Images/logo.png";
+import Footer from '../Footer/Footer';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -123,6 +124,8 @@ export default function Login() {
       </div>
      
     </Container>
+    <br/><br/>
+    <Footer/>
     </>
   );
 }
