@@ -9,8 +9,8 @@
 .user_profile_cont{
     display: flex;
     width: 100%;
-    height: inherit;
-    margin-top: 80px;
+    /* height: inherit; */
+    margin-top: 70px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
