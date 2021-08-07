@@ -1,0 +1,25 @@
+.navbar_cont{
+    height: 90px;
+    width: 100%;
+    background-color: rgb(22, 17, 17);
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.link{
+    text-decoration: none;
+    color: white;
+}
+.navbar_right_cont{
+    width: 25%;
+    display: inline-flex;
+    gap: 10px;
+}
+.navbar_left_cont{
+    margin-left: 60px;
+}
+.btn{
+    background-color: rgb(15, 168, 26);
+}
