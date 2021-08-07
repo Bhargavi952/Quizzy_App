@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -9,8 +9,8 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-
-
+import { useDispatch, useSelector } from "react-redux"
+import { SignIn } from '../../Redux/Auth/action';
 const useStyles = makeStyles((theme) => ({
     root:{
         boxShadow: "rgba(10, 10, 10, 0.35) 0px 5px 15px",
@@ -41,8 +41,12 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Login() {
   const classes = useStyles();
-  const handleLogin = ()=>{
-
+  const [Email,setEmail] = useState("")
+  const [Password,setPassword] = useState("")
+  let dispatch = useDispatch()
+  const handleLogin = (e)=>{
+    e.preventDefault()
+    dispatch(SignIn({Email,Password}))
 }
 
   return (
@@ -55,7 +59,7 @@ export default function Login() {
         <Typography component="h1" variant="h5">
           Log In
         </Typography>
-        <form onSubmit={handleLogin} className={classes.form} noValidate>
+        <form  className={classes.form} noValidate>
           <TextField
             variant="outlined"
             margin="normal"
@@ -64,6 +68,7 @@ export default function Login() {
             id="email"
             label="Email Address"
             name="email"
+            onChange={(e)=>setEmail(e.target.value)}
             autoComplete="email"
             autoFocus
           />
@@ -73,6 +78,7 @@ export default function Login() {
             required
             fullWidth
             name="password"
+            onChange={(e)=>setPassword(e.target.value)}
             label="Password"
             type="password"
             id="password"
@@ -84,6 +90,7 @@ export default function Login() {
             variant="contained"
             className={classes.submit}
             color="secondary"
+            onClick={handleLogin}
           >
             Log In
           </Button>
