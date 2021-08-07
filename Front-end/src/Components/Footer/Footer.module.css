@@ -18,6 +18,7 @@
     background-color: rgb(22, 17, 17);
     width: 100%;
     bottom: 0;
+    margin-top: 40px;
 }
 .social_icons :hover{
     color: #11bf71;

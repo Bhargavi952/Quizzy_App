@@ -10,14 +10,17 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   paper: {
-    padding: theme.spacing(1),
+    padding: theme.spacing(4),
     textAlign: "center",
     backgroundColor: "black",
-    width: "60%",
+    width: "70%",
     border: "none",
     marginTop: "10px",
+    [theme.breakpoints.down('sm')]: {
+        width: "50%"
+      },
     "&:hover": {
-      transform: "scale(0.5)",
+      transform: "scale(0.9)",
       transition: " 0.3s ease-in-out",
       cursor: "pointer",
     },
@@ -35,12 +38,9 @@ const CategoryCard = () => {
 
   return (
     <div className={styles.categorycard_cont}>
-      <Grid
-        style={{
-            display:"inline-flex",
-            alignItems:"center",
-          justifyContent: "center",
-        }}
+     <div className={styles.categorycard_sub_cont}>
+     <Grid
+     className={styles.Grid}
         container
         spacing={2.5}
       >
@@ -60,6 +60,7 @@ const CategoryCard = () => {
           );
         })}
       </Grid>
+     </div>
     </div>
   );
 };
