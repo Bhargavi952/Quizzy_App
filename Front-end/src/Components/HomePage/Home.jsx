@@ -20,6 +20,7 @@ const Home = () => {
     scale: 0.4,
   };
 
+
   return (
     <div>
       <Navbar />
