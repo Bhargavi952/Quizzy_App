@@ -14,6 +14,8 @@ import { Redirect } from "react-router-dom";
 import { useHistory } from "react-router";
 import logo from '../../Images/logo.png'
 import styles from './Register.module.css'
+import Footer from "../Footer/Footer";
+import Socialmedia from "../Footer/Socialmedia";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -139,9 +141,7 @@ console.log(data.status)
          
           <Grid container justifyContent="flex-end">
             <Grid item>
-              <Link variant="body2">
-                Already have an account? Log in
-              </Link>
+              <a href="/login"> Already have an account? Log in </a>
             </Grid>
           </Grid>
         </form>
@@ -156,6 +156,8 @@ console.log(data.status)
           </Button>
       </div>
     </Container>
+    <br></br>
+    <Socialmedia/>
     </>
   );
 }
