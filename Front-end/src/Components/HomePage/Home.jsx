@@ -43,11 +43,11 @@ const fetchData= async()=>{
     <div>
     <CategoryCard data={data} />
     </div>
-      <div style={{ width: "50%", margin: "auto" ,zIndex:"-1"}}>
+      <div style={{ width: "50%", margin: "auto" }}>
         <Zoom {...zoomOutProperties}>
           {images.map((each, index) => (
-            <div key={index} style={{ width: "100%",zIndex:"-1" }}>
-              <img style={{ objectFit: "cover", width: "100%",zIndex:"-1" }} src={each} />
+            <div key={index} style={{ width: "100%" }}>
+              <img style={{ objectFit: "cover", width: "100%" }} src={each} />
             </div>
           ))}
         </Zoom>

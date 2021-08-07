@@ -11,6 +11,10 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor:"#11bf71",
+    [theme.breakpoints.down('sm')]: {
+      height:"50px",
+      fontSize:"12px"
+    },
   },
 }));
 const Navbar = () => {
