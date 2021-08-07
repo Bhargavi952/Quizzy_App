@@ -61,7 +61,10 @@ export default function Register() {
     })
 console.log(data.status)
     if(data.status==201){
+
+
       history.push("/login")
+
     }
  
   }

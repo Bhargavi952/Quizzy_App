@@ -11,8 +11,12 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { useDispatch, useSelector } from "react-redux"
 import { SignIn } from '../../Redux/Auth/action';
+
+import { useHistory } from "react-router"
+
 import styles from './Login.module.css'
 import logo from "../../Images/logo.png";
+
 
 const useStyles = makeStyles((theme) => ({
     root:{
@@ -45,12 +49,18 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Login() {
   const classes = useStyles();
-  const [Email,setEmail] = useState("")
-  const [Password,setPassword] = useState("")
+  const [email,setEmail] = useState("")
+  const [password,setPassword] = useState("")
+  const {isAuth} = useSelector(state=>state.auth)
+  const history = useHistory()
   let dispatch = useDispatch()
+
+  if(isAuth){
+    history.push("/")
+  }
   const handleLogin = (e)=>{
     e.preventDefault()
-    dispatch(SignIn({Email,Password}))
+    dispatch(SignIn({email,password}))
 }
 
   return (
@@ -100,7 +110,7 @@ export default function Login() {
             color="secondary"
             onClick={handleLogin}
           >
-            Log In
+         Log In
           </Button>
           <Grid container>
             <Grid item >

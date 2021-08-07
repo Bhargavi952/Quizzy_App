@@ -1,4 +1,4 @@
-import { LOGIN_REQ, LOGIN_SUC, LOGIN_FAIL } from "./actionTypes";
+import { LOGIN_REQ, LOGIN_SUC, LOGIN_FAIL, LOG_OUT } from "./actionTypes";
 import {saveData,loadData} from "../../LocalStorage/localstorage"
 const initState = {
   isAuth: loadData("isAuth")||false,
@@ -18,6 +18,12 @@ const initState = {
       return {
         ...state,
         isAuth:true
+      };
+      case LOG_OUT:
+      saveData("isAuth",false)
+      return {
+        ...state,
+        isAuth:false
       };
     case LOGIN_FAIL:
       return {
