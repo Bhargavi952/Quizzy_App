@@ -1,0 +1,32 @@
+.question_cont{
+    margin: 120px 50px 50px 80px ;
+    font-size: 17px;
+}
+.options{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+.btn{
+    width: 150px;
+    height: 40px;
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+    border:none;
+    outline: none;
+    font-size: 17px;
+    font-weight: 900;
+
+}
+.btn:hover{
+    background-color: #11bf71;
+    color: black;
+}
+.pagination{
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

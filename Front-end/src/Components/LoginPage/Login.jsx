@@ -70,18 +70,16 @@ export default function Login() {
   return (
     <>
       <div className={styles.nav_profile_cont}>
-       
-          <img
-            style={{ cursor: "pointer" }}
-            className={styles.img}
-            width="70px"
-            src={logo}
-            alt="Logo"
-          />
-     
+        <img
+          style={{ cursor: "pointer" }}
+          className={styles.img}
+          width="70px"
+          src={logo}
+          alt="Logo"
+        />
 
         <button className={styles.btn}>
-          <Link className={styles.link} to="/login">
+          <Link className={styles.link} to="/register">
             Register
           </Link>
         </button>
