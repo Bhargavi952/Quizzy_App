@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from './Profile.module.css'
 import ScoreCard from "./ScoreCard";
 import logo from "../../Images/logo.png";
@@ -6,7 +6,10 @@ import {Link} from 'react-router-dom'
 import { Button } from "@material-ui/core";
 import Socialmedia from "../Footer/Socialmedia";
 import { makeStyles } from '@material-ui/core/styles';
+import { useDispatch, useSelector } from "react-redux";
+import {saveData,loadData} from "../../LocalStorage/localstorage"
 
+import axios from "axios";
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor:"#11bf71",
@@ -25,8 +28,25 @@ const Profile = () => {
       setShowButton(!showButton)
     };
     const handleProfile = ()=>{
-       setShowButton(!showButton)   
-    }
+      setShowButton(!showButton)   
+   }
+    const  userId  = useSelector((state) => state.auth.userId);
+    // const userId = loadData("userId")
+    console.log(userId)
+   
+    const [userData,setUserData] = useState([])
+   const getUserData=async()=>{
+    const {data} = await axios.get(`http://localhost:4000/user/${userId}`)
+    const x = data.data
+    console.log(x)
+    setUserData(x)
+    // console.log(userData)
+
+   }
+   useEffect(()=>{
+    getUserData()
+   },[])
+   
     return (
         <div>
             <div className={styles.user_profile_cont}>
@@ -43,15 +63,18 @@ const Profile = () => {
               <input className={styles.input} ref={inputRef} type="file" />
                 <button className={styles.addbtn} onClick={handleAddFile}>Add file</button>
               </div>
-              <h1 style={{margin:"-10px"}} >{"Bhargavi"}  {"Shetty"}</h1>
-              <h4>{"bhargavishetty113@gmail.com"}</h4>
+              <h1 style={{margin:"-10px"}} >{userData?.first_name}  {userData?.last_name}</h1>
+              <h4>{userData?.email}</h4>
               <h2>Total Score:{"100"}</h2>
               <div className={styles.scoreCard_heading}>
               <h4>{"Category Name"}</h4>
             <h4>{"Total Points"}</h4>
             <h4>{"Earned Points"}</h4>
               </div>
-              <ScoreCard/>
+              {userData.category&&userData.category.map((item,i)=>(
+              <ScoreCard key={i} item={item}/>
+              ))}
+            
               <br></br>
               
               <Socialmedia/>

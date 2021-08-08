@@ -11,10 +11,14 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor:"#11bf71",
+    borderRadius:"10px",
     [theme.breakpoints.down('sm')]: {
       height:"50px",
       fontSize:"12px"
     },
+    "&:hover":{
+      backgroundColor:"black"
+    }
   },
 }));
 const Navbar = () => {
@@ -32,13 +36,16 @@ const Navbar = () => {
   return (
     <div className={styles.navbar_cont}>
       <div className={styles.navbar_left_cont}>
-        <img width="70px" src={logo} alt="Logo" />
+     
+      <img width="70px" src={logo} alt="Logo" />
+           
+     
       </div>
       <div className={styles.navbar_right_cont}>
 
         {isAuth ? (
           <Button className={classes.root} onClick={handleLogOut} variant="contained">
-            <Link  className={styles.link} to="/">
+            <Link  className={styles.link} to="/login">
               LOG OUT
             </Link>
           </Button>
@@ -69,7 +76,9 @@ const Navbar = () => {
         ) : null
           
         }
-       
+       <Link  to="/questions">
+              
+             </Link>
       </div>
     </div>
   );

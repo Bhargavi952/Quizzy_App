@@ -6,6 +6,8 @@ import Grid from "@material-ui/core/Grid";
 import { Zoom } from "react-reveal";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
+import {saveData,loadData} from "../../LocalStorage/localstorage"
+import { useHistory } from "react-router";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -14,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(4),
     textAlign: "center",
     backgroundColor: "black",
+    boxShadow: "rgba(37, 255, 8, 0.85) 0px 5px 15px",
     width: "70%",
     border: "none",
     marginTop: "10px",
@@ -30,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     fontWeight: "600",
     color: "#01bf71",
-    fontSize: "18px",
+    fontSize: "24px",
   },
 }));
 
@@ -39,13 +42,16 @@ const CategoryCard = ({data}) => {
  
   let userId = useSelector(state=>state.auth.userId)
   console.log(data);
-
+  const history = useHistory();
   const handleClick = async(id)=>{
     let payload={
       category:id
     }
    let res= await axios.patch(`http://localhost:4000/user/${userId}`,payload)
    console.log(res)
+   saveData("categoryId",id)
+   history.push("/questions")
+
   }
 
   return (
