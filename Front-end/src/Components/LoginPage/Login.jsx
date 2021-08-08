@@ -74,7 +74,7 @@ export default function Login() {
      <div className={styles.nav_profile_cont}>
         <img className={styles.img} width="70px" src={logo} alt="Logo" />
         <button className={styles.btn}>
-          <Link className={styles.link} to='/login'>Register
+          <Link className={styles.link} to='/register'>Register
           </Link>
         </button>
       </div>
