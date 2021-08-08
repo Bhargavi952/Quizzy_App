@@ -7,36 +7,69 @@ import styles from "./Question.module.css";
 import Pagination from '@material-ui/lab/Pagination';
 
 export const QuestionPage = () => {
-  const history = useHistory();
-  const [question, setQuestion] = useState("");
-  const [page, setPage] = useState(1);
-  let categoryId = loadData("categoryId");
-  const getQuestions = async () => {
-    let { data } = await axios.get(
-      `http://localhost:4000/category/${categoryId}?page=${page}`
-    );
-    let x = data.data.questions[0];
-    console.log(x);
-    setQuestion(x);
-    console.log(question);
-  };
-  const [value, setValue] = useState("");
-  console.log(value);
+
+    const history = useHistory();
+    const [question,setQuestion] = useState("")
+    const [page,setPage] = useState(1)
+    const [questionId, setQuestionId] = useState("")
+    let categoryId = loadData("categoryId")
+    const getQuestions = async()=>{
+        let {data} = await axios.get(`http://localhost:4000/category/${categoryId}?page=${page}`)
+        let x = data.data.questions[0]
+        let quesId = data.data.questions[0]._id
+        setQuestionId(quesId)
+        console.log(x)
+        setQuestion(x)
+        console.log(question)
+    }
+    const [value,setValue] = useState("")
+   console.log(value)
   const handleChange = (event, value) => {
     setPage(value);
   };
+
 
   useEffect(() => {
     getQuestions();
   }, [page]);
 
-  function handleSubmit() {
-    if (page >= 5) {
-      history.push("/");
+
+
+    async function checkAnswer(){
+        let payload = {
+            ans : value
+        }
+        let payload1 = {
+            marks : 10
+        }
+        let ans = await axios.post(`http://localhost:4000/question/${questionId}`, payload)
+        console.log(ans)
+        if(ans.status == 200){
+            alert("Correct Answer")
+            await axios.patch(`http://localhost:4000/category/updatescore/${categoryId}`, payload1)
+            
+        }
+        else{
+            alert("Wrong Answer")
+        }
     }
-    setPage((prev) => prev + 1);
-    console.log(page);
-  }
+
+
+    function handleSubmit(){
+        
+        if(page>=5){
+            history.push("/")
+        }
+        
+        setPage(prev=>prev+1)
+        checkAnswer()
+        console.log(page)
+        
+     
+
+    }
+   
+  
 
   return (
     <>
