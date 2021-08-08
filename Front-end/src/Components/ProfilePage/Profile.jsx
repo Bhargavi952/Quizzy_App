@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from './Profile.module.css'
 import ScoreCard from "./ScoreCard";
-import logo from "../../Images/logo.png";
+import logo from "../../Images/logo4.png";
 import {Link} from 'react-router-dom'
 import { Button } from "@material-ui/core";
 import Socialmedia from "../Footer/Socialmedia";
@@ -51,7 +51,7 @@ const Profile = () => {
         <div>
             <div className={styles.user_profile_cont}>
             <div className={styles.nav_profile_cont}>
-        <img width="70px" src={logo} alt="Logo" />
+        <img width="50px" src={logo} alt="Logo" />
         <Button variant="contained" className={classes.root} >
           <Link  className={styles.link} to='/' >
             Home
