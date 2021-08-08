@@ -15,7 +15,7 @@ import { SignIn } from "../../Redux/Auth/action";
 import { useHistory } from "react-router";
 
 import styles from "./Login.module.css";
-import logo from "../../Images/logo.png";
+import logo from "../../Images/logo4.png";
 
 import Socialmedia from "../Footer/Socialmedia";
 
@@ -44,6 +44,11 @@ const useStyles = makeStyles((theme) => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
     borderRadius: "10px",
+    backgroundColor:"#11bf71",
+    "&:hover":{
+    backgroundColor:"black",
+
+    }
     // backgroundImage: "linear-gradient(270deg, #43264e 0, #da234a 72%)"
   },
 }));
@@ -73,7 +78,7 @@ export default function Login() {
         <img
           style={{ cursor: "pointer" }}
           className={styles.img}
-          width="70px"
+          width="40px"
           src={logo}
           alt="Logo"
         />

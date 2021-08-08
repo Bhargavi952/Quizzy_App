@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(4),
     textAlign: "center",
     backgroundColor: "black",
-    boxShadow: "rgba(37, 255, 8, 0.85) 0px 5px 15px",
+    boxShadow: "rgba(136, 138, 136, 0.85) 0px 5px 15px",
     width: "70%",
     border: "none",
     marginTop: "10px",

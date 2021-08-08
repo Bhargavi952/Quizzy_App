@@ -11,7 +11,7 @@ import Container from "@material-ui/core/Container";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router";
-import logo from '../../Images/logo.png'
+import logo from '../../Images/logo4.png'
 import styles from './Register.module.css'
 import Socialmedia from "../Footer/Socialmedia";
 
@@ -40,6 +40,11 @@ const useStyles = makeStyles((theme) => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
     borderRadius: "10px",
+    backgroundColor:"#11bf71",
+    "&:hover":{
+    backgroundColor:"black",
+
+    }
   },
 }));
 
@@ -73,7 +78,7 @@ console.log(data.status)
     <>
     <div className={styles.nav_profile_cont}>
     <Link   to="/">
-    <img className={styles.img} width="70px" src={logo} alt="Logo" />
+    <img className={styles.img} width="40px" src={logo} alt="Logo" />
             </Link>
     
         <button className={styles.btn}>
