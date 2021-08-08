@@ -5,8 +5,8 @@ const ScoreCard = ({item}) => {
     return (
         <div className={styles.scoreCard_cont}>
             <h4>{item.title}</h4>
-            <h4>{"100"} Mark</h4>
-            <h4>{"80"} Mark</h4>
+            <h4>{"50"} Mark</h4>
+            <h4>{item.Totalmarks} Mark</h4>
         </div>
     )
 }
