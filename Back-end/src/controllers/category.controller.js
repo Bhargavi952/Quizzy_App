@@ -52,4 +52,18 @@ router.get("/:id", async (req, res) => {
   return res.status(201).json({ data: data });
 });
 
+
+router.patch("/updatescore/:id", async (req, res) => {
+    const old = await Category.findById(req.params.id);
+    const category = await Category.findByIdAndUpdate(
+      req.params.id,
+      { Totalmarks: old.Totalmarks+req.body.marks },
+      { new: true }
+    )
+      .populate("questions")
+      .lean()
+      .exec();
+    return res.status(201).json({ data: category });
+  });
+
 module.exports = router;

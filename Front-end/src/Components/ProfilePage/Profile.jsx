@@ -65,7 +65,7 @@ const Profile = () => {
               </div>
               <h1 style={{margin:"-10px"}} >{userData?.first_name}  {userData?.last_name}</h1>
               <h4>{userData?.email}</h4>
-              <h2>Total Score:{"100"}</h2>
+              
               <div className={styles.scoreCard_heading}>
               <h4>{"Category Name"}</h4>
             <h4>{"Total Points"}</h4>
