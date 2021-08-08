@@ -1,7 +1,7 @@
 .nav_profile_cont{
     height: 60px;
     width: 100%;
-    background-color: rgb(22, 17, 17);
+    background-color: rgb(0, 0, 0);
     position: fixed;
     top: 0;
     display: flex;
