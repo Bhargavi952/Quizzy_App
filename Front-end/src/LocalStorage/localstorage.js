@@ -3,7 +3,7 @@ function saveData(key, data) {
   }
   function loadData(key) {
     try {
-      let data = localStorage.getItem(key);
+      let data = JSON.parse(localStorage.getItem(key));
      
       console.log(data)
       return data;

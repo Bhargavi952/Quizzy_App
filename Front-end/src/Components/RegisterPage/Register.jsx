@@ -72,7 +72,10 @@ console.log(data.status)
   return (
     <>
     <div className={styles.nav_profile_cont}>
-        <img className={styles.img} width="70px" src={logo} alt="Logo" />
+    <Link   to="/">
+    <img className={styles.img} width="70px" src={logo} alt="Logo" />
+            </Link>
+    
         <button className={styles.btn}>
           <Link className={styles.link} to='/login'>Login
           </Link>
