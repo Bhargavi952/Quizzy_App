@@ -7,10 +7,13 @@ export const QuestionPage = () => {
     const history = useHistory();
     const [question,setQuestion] = useState("")
     const [page,setPage] = useState(1)
+    const [questionId, setQuestionId] = useState("")
     let categoryId = loadData("categoryId")
     const getQuestions = async()=>{
         let {data} = await axios.get(`http://localhost:4000/category/${categoryId}?page=${page}`)
         let x = data.data.questions[0]
+        let quesId = data.data.questions[0]._id
+        setQuestionId(quesId)
         console.log(x)
         setQuestion(x)
         console.log(question)
@@ -23,11 +26,35 @@ export const QuestionPage = () => {
         
     },[page])
 
+
+    async function checkAnswer(){
+        let payload = {
+            ans : value
+        }
+        let payload1 = {
+            marks : 10
+        }
+        let ans = await axios.post(`http://localhost:4000/question/${questionId}`, payload)
+        console.log(ans)
+        if(ans.status == 200){
+            alert("Correct Answer")
+            await axios.patch(`http://localhost:4000/category/updatescore/${categoryId}`, payload1)
+            
+        }
+        else{
+            alert("Wrong Answer")
+        }
+    }
+
+
     function handleSubmit(){
+        
         if(page>=5){
             history.push("/")
         }
+        
         setPage(prev=>prev+1)
+        checkAnswer()
         console.log(page)
         
      

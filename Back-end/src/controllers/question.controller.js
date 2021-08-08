@@ -14,14 +14,14 @@ router.get("/", async (req, res) => {
     return res.status(201).json({data: question})
 })
 
-router.get("/:id/:ans", async (req, res) => {
-    const ans = req.params.ans
+router.post("/:id", async (req, res) => {
+    let ans = req.body.ans
     const question = await Question.findById(req.params.id).lean().exec()
     if(question.answer == ans){
         return res.status(200).json({data: "answer is right"})
     }
     else{
-        return res.status(400).json({data: "answer is wrong"})
+        return res.status(210).json({data: "answer is wrong"})
     } 
 })
 
