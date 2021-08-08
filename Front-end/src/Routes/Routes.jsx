@@ -11,6 +11,7 @@ import { useSelector } from "react-redux";
 
 
 import Home from "../Components/HomePage/Home";
+import { QuestionPage } from "../Components/QuestionPage/QuestionPage";
 
 
 const Routes = () => {
@@ -26,7 +27,9 @@ const Routes = () => {
         <Route exact path="/login">
           <Login />
         </Route>
-
+        <Route exact path="/questions">
+          <QuestionPage/>
+        </Route>
 
         <Route exact path="/register">
           <Register />

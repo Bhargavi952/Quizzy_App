@@ -12,6 +12,7 @@ const getDataSuccess=(payload)=>{
 export const GetData = (payload) => async (dispatch)=>{
     try {
         let data = await axios.get(`http://localhost:4000/user/${payload}`)
+        
     } catch (error) {
         alert(error.message)
     }

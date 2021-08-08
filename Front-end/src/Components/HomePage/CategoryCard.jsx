@@ -6,6 +6,8 @@ import Grid from "@material-ui/core/Grid";
 import { Zoom } from "react-reveal";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
+import {saveData,loadData} from "../../LocalStorage/localstorage"
+import { useHistory } from "react-router";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -39,13 +41,16 @@ const CategoryCard = ({data}) => {
  
   let userId = useSelector(state=>state.auth.userId)
   console.log(data);
-
+  const history = useHistory();
   const handleClick = async(id)=>{
     let payload={
       category:id
     }
    let res= await axios.patch(`http://localhost:4000/user/${userId}`,payload)
    console.log(res)
+   saveData("categoryId",id)
+   history.push("/questions")
+
   }
 
   return (

@@ -5,7 +5,8 @@ const categorySchema = new mongoose.Schema({
     title: {type: String, required: true},
     questions: [{type: mongoose.Schema.Types.ObjectId, ref: Question, default:""}],
     status: {type: Boolean, default:false},
-    url: {type: String, required: true}
+    url: {type: String, required: true},
+    Totalmarks:{type:Number,default:0}
 },
 {
     timestamps: true,
