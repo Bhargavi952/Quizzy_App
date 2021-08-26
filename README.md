@@ -1,10 +1,10 @@
-# Quiz_App
+# Quizzy_App
 ### Run Locally
 
 Clone the project
 
 ```bash
-  https://github.com/arunkr741/Quiz_App.gi\
+  https://github.com/Bhargavi952/Quizzy_App.git
 ```
 
 Go to the project directory
@@ -54,5 +54,8 @@ Start the server
 
 **Server:** 
 - Cors
-
+## Contributors:
+- [Mohit Rawat](https://github.com/mohit512661)
+- [Aurn Kumar](https://github.com/arunkr741)
+- [Bhargavi](https://github.com/Bhargavi952)
 
